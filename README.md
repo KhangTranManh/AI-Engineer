@@ -1,77 +1,86 @@
 # 📄 Tran Manh Khang – CV
 
-Welcome to my CV repository!
-I am a **Software Engineering Fresher** and aspiring **AI Engineer**, currently completing my degree at **Ton Duc Thang University**. I have hands-on experience across **AI/ML model development, full-stack web development, and software quality assurance**, gained through an AI Engineer internship, academic study, and an international exchange program.
+**AI Engineer — LLM, AI Agents & Model Evaluation**
 
-This repository contains my up-to-date CV and serves as a quick overview of my skills and projects.
+📧 khangjaki12@gmail.com · 📍 My Tho, Tien Giang, Vietnam · 🐙 [github.com/KhangTranManh](https://github.com/KhangTranManh)
 
----
-
-## About Me
-- **Summary:** Final-year Software Engineering student (graduating 2026) seeking a Fresher role in AI Engineering or Software Development, with strong skills in model building, prompt engineering, fine-tuning, and end-to-end testing.
-- **Education:** B.Eng. Software Engineering at Ton Duc Thang University (2021–2026).
-- **GPA:** 3.1/4 (Vietnamese scale).
-- **International Experience:** Exchange Program at **JeonJu University, Korea (2024)** – focused on AI, Machine Learning, and Deep Learning.
-- **Location:** My Tho, Tien Giang, Vietnam.
-- **Email:** khangjaki12@gmail.com.
-- **GitHub:** [github.com/KhangTranManh](https://github.com/KhangTranManh).
+Welcome to my CV repository! This repo holds my up-to-date CV and a quick overview of my experience, projects and skills.
 
 ---
 
-## 💼 Work Experience
+## 👋 About Me
 
-### **AI Engineer Intern | Concentrix, Vietnam**
-*May 2026 – Jul 2026*
-- Built and evaluated QA/QC classification models to automatically assess call quality and compliance for the telesales team; the model was deployed into production and is actively used in the telesales evaluation workflow.
-- Fine-tuned models using Unsloth, monitoring training/validation loss and validating performance on real production data.
-- Cleaned and processed raw data to handle errors and inconsistencies, and verified label quality to ensure reliable training data.
-- Performed manual testing of AI models and bots, verifying functional correctness, accuracy, and stability before deployment.
-- Gained hands-on experience with prompt engineering to design and refine prompts that improved chatbot response quality.
-- Assisted in fine-tuning language models and conducted systematic testing of bot models, documenting issues and edge cases.
-- Contributed to building and testing AI agent workflows using LangChain/LangGraph, integrating tools and evaluating agent responses as part of the QA/QC process.
+Final-year Software Engineering student focused on **making LLM systems measurably reliable**.
+
+- Built and fine-tuned an LLM workflow for customer-call quality assessment at **Concentrix**.
+- Ran a **10-phase independent study** on whether a small LLM can catch its own mistakes, using automatic answer checking instead of an AI judge.
+- Comfortable turning failures into controlled experiments, reporting negative results honestly, and building agents with safety guardrails.
+
+---
+
+## 📂 Selected Projects
+
+### 🔬 LLM Self-Correction Research
+*Personal research project · 10 phases*
+
+**Problem:** can a small language model detect and fix its own wrong answers?
+
+- **Evaluation without an AI judge:** math answers checked symbolically and code run against tests; all test sets frozen and kept separate from training data.
+- **Voting works:** majority vote over 5 independent attempts raised GSM8K accuracy from **75.0% → 83.25–85.5%** on 400 fresh problems across three model versions (p < 0.001).
+- **Knows *that*, not *which*:** disagreement between two attempts caught **82–85%** of wrong first answers, but the model picked the right one of two conflicting solutions only **44–52%** of the time.
+- **Fixes that failed, reported as such:** a fine-tuned judge (808 balanced examples) stayed at chance (52.1% → 50.7%) and trailed voting by 6 points; preference tuning raised KEEP recall 81% → 85% without better error detection.
+- **Blind re-solve helps:** a second attempt that does not see the earlier answer fixed far more errors; routing flagged answers to it lifted accuracy from **70.75% → 74.5–77.5%**.
+- All data, configs and evaluation code kept reproducible.
+
+### 🤖 Ciel — Personal AI Agent
+*Personal project · Python, Docker*
+
+**Problem:** let an LLM plan and act with real tools without unsafe or duplicate actions.
+
+- **Brain/Worker design:** one model classifies intent and plans, another responds; deterministic code validates plans, permissions, budgets and cancellation — *the model proposes, the code enforces*.
+- **Guardrails:** malformed multi-tool plans stop before execution, risky actions need confirmation, file access is sandboxed, and outgoing messages and reminders are deduplicated across restarts.
+- **Product features:** monthly/weekly planning, one-time reminders, long-term memory (ChromaDB) and proactive Telegram notifications on one runtime shared by CLI, API/web UI and Telegram; deployed with Docker.
+- **Prompt-improvement tool:** mines repeated failures and may edit only one allow-listed prompt string; auto-reverts if unit tests fail. Backed by a regression test suite.
+
+---
+
+## 💼 Experience
+
+### AI Engineer Intern — Concentrix, Vietnam
+*Mar 2026 – Jul 2026*
+
+- Built an LLM-based workflow to assess customer-call quality: converted conversations into structured data and validated predictions against human-labeled samples.
+- Fine-tuned a small open-source LLM, focusing training on hard cases where earlier versions failed, which substantially improved accuracy.
+- Benchmarked it against leading commercial models: comparable on straightforward cases, stronger on difficult ones, at a lower inference cost.
+- Tested AI agent workflows for reliability: retry/fallback behavior, tool-response validation, edge-case documentation and prompt improvements.
+
+### Exchange Student Program — JeonJu University, Korea
+*2024*
+
+- Studied AI, Machine Learning and Deep Learning as an exchange student.
+
+---
+
+## 🎓 Education
+
+**B.Eng. Software Engineering — Ton Duc Thang University** *(2021 – 2026)*
+IELTS 6.0
 
 ---
 
 ## 🛠 Skills
 
-### **Technical Skills**
-- **Programming Languages:** Python, Java, JavaScript, TypeScript.
-- **Web Development:** React, Node.js, Express, REST APIs, MongoDB, Docker.
-- **AI/ML Frameworks & Tools:** PyTorch, TensorFlow, OpenCV, YOLOv8, CLIP, FAISS, Unsloth, Prompt Engineering, Model Fine-tuning.
-- **Agent Frameworks:** LangChain, LangGraph.
-- **Testing & QA:** Manual Testing, Model Evaluation & QC, Postman, Git.
-
-### **Soft Skills**
-- Teamwork, Problem-solving, Self-learning.
-
-### **Languages**
-- **Vietnamese:** Native.
-- **English:** IELTS 6.0.
-
----
-
-## 📂 Featured Projects
-
-### **1. Fashion E-Commerce Website (2025)**
-*Personal Project — React · TypeScript · Node.js · Express · MongoDB · Docker*
-- **Objective:** Built a full-stack e-commerce platform with a microservices architecture.
-- **Key Contributions:**
-  - Designed an API Gateway plus three independent services (User, Product, Order), each with its own MongoDB database.
-  - Implemented JWT-based authentication, shopping cart, and order management; manually tested all REST API endpoints using Postman.
-  - Containerized all services using Docker; used React Query and Zustand for frontend state management.
-  - Currently designing a Python/FastAPI recommendation engine (collaborative and content-based filtering) as an upcoming service.
-
-### **2. Autonomous Vehicle AI (2024)**
-*Developed at JeonJu University, Korea*
-- **Objective:** Create real-time object detection models for autonomous driving.
-- **Tech Stack:** YOLOv8, PyTorch.
-- **Key Contributions:**
-  - Processed raw sensor/camera data to build training datasets for real-world driving scenarios.
-  - Built a real-time object detection pipeline with YOLOv8 and PyTorch, achieving an mAP of 0.87 on the validation set.
+| Area | Tools & Techniques |
+|---|---|
+| **LLM & ML** | PyTorch, Unsloth, fine-tuning (SFT, DPO, GRPO, ORPO), model evaluation, representation probing, activation steering |
+| **Agent systems** | LangChain, LangGraph, tool calling, retry/fallback workflows, guardrails, ChromaDB (RAG) |
+| **Computer vision** | YOLOv8, OpenCV |
+| **Software & backend** | Python, Java, JavaScript, TypeScript, Node.js, Express, REST APIs, MongoDB, Docker, vLLM, Git |
 
 ---
 
 ## 📄 CV
+
 [Download my latest CV (PDF)](./Tran_Manh_Khang_CV.pdf)
 
 ---
